@@ -759,9 +759,18 @@
       margin-bottom: 64px;
     }
 
+    .full-stack-card {
+      border-color: rgba(255,140,0,0.35);
+      background: linear-gradient(160deg, rgba(255,140,0,0.04) 0%, var(--surface) 100%);
+    }
+    .full-stack-card .pricing-badge {
+      background: linear-gradient(135deg, #FF8C00, #FFB700);
+      color: #000;
+    }
+
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
       align-items: start;
     }
@@ -1427,7 +1436,7 @@
         <p class="section-label reveal">Pricing</p>
         <h2 class="section-title reveal reveal-delay-1">Bundle. Save. Ship.</h2>
         <p class="section-sub reveal reveal-delay-2" style="margin: 0 auto;">
-          Use each product individually or bundle all three. Early access pricing — lock it in before launch.
+          Use each product individually or bundle all five. Early access pricing — lock it in before launch.
         </p>
       </div>
 
@@ -1436,26 +1445,34 @@
         <!-- Individual -->
         <div class="pricing-card reveal reveal-delay-1">
           <p class="pricing-name">À la carte</p>
-          <p class="pricing-price compare-strike" style="color:var(--text-xlo); font-size:40px">$57</p>
+          <p class="pricing-price compare-strike" style="color:var(--text-xlo); font-size:40px">$135</p>
           <p class="pricing-period">/ month if bought separately</p>
           <div class="pricing-divider"></div>
           <p class="pricing-includes-label">What you'd pay individually</p>
           <div class="pricing-comparison">
             <div class="pricing-compare-row">
-              <span>SnapOG Pro</span>
+              <span>snapog</span>
               <span>$19 / mo</span>
             </div>
             <div class="pricing-compare-row">
-              <span>shot.dev Pro</span>
+              <span>shot.dev</span>
               <span>$29 / mo</span>
             </div>
             <div class="pricing-compare-row">
-              <span>pdfsnap Pro</span>
+              <span>pdfsnap</span>
               <span>$9 / mo</span>
+            </div>
+            <div class="pricing-compare-row">
+              <span>snapmail</span>
+              <span>$49 / mo</span>
+            </div>
+            <div class="pricing-compare-row">
+              <span>snapwatch</span>
+              <span>$29 / mo</span>
             </div>
             <div class="pricing-compare-row" style="margin-top:4px">
               <span class="compare-total">Total</span>
-              <span class="compare-total compare-strike">$57 / mo</span>
+              <span class="compare-total compare-strike">$135 / mo</span>
             </div>
           </div>
         </div>
@@ -1521,6 +1538,42 @@
             Everything in Starter
           </div>
           <a href="#waitlist" class="pricing-cta">Join the Waitlist →</a>
+        </div>
+
+        <!-- Full Stack Bundle -->
+        <div class="pricing-card full-stack-card reveal reveal-delay-4">
+          <div class="pricing-badge">FULL STACK</div>
+          <p class="pricing-name" style="color:#FF8C00">Full Stack</p>
+          <p class="pricing-price" style="background: linear-gradient(135deg, #FF8C00, #FFB700); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$199</p>
+          <p class="pricing-period">/ month, all five products</p>
+          <span class="pricing-save" style="background: rgba(255,140,0,0.12); color: #FF8C00; border-color: rgba(255,140,0,0.25);">Save $236 vs all-pro</span>
+          <div class="pricing-divider"></div>
+          <p class="pricing-includes-label">What's included</p>
+          <div class="pricing-line">
+            <div class="pricing-line-check check-lime">✓</div>
+            snapog — OG image generation
+          </div>
+          <div class="pricing-line">
+            <div class="pricing-line-check check-cyan">✓</div>
+            shot.dev — URL screenshots
+          </div>
+          <div class="pricing-line">
+            <div class="pricing-line-check check-amber">✓</div>
+            pdfsnap — HTML-to-PDF
+          </div>
+          <div class="pricing-line">
+            <div class="pricing-line-check" style="color:#A855F7">✓</div>
+            snapmail — email preview
+          </div>
+          <div class="pricing-line">
+            <div class="pricing-line-check" style="color:#FF8C00">✓</div>
+            snapwatch — change monitoring
+          </div>
+          <div class="pricing-line">
+            <div class="pricing-line-check check-cyan">✓</div>
+            Priority support + SLA
+          </div>
+          <a href="#waitlist" class="pricing-cta" style="background: linear-gradient(135deg, #FF8C00, #FFB700); color: #000;">Join the Waitlist →</a>
         </div>
 
       </div>
