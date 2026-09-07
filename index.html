@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snap Suite — One API Key. Three Developer Superpowers.</title>
-  <meta name="description" content="OG image generation, URL screenshots, and HTML-to-PDF conversion under one Snap Suite subscription. One API key, one dashboard, one bill. Up to 67% off individual prices." />
-  <meta property="og:title" content="Snap Suite — One API Key. Three Developer Superpowers." />
-  <meta property="og:description" content="Stop juggling three rendering vendors. SnapOG + shot.dev + pdfsnap under one Snap Suite plan." />
+  <title>Snap Suite — One API Key. Five Developer Superpowers.</title>
+  <meta name="description" content="OG image generation, URL screenshots, HTML-to-PDF, email preview, and website change monitoring under one Snap Suite subscription. One API key, one dashboard, one bill." />
+  <meta property="og:title" content="Snap Suite — One API Key. Five Developer Superpowers." />
+  <meta property="og:description" content="Stop juggling five rendering and monitoring vendors. SnapOG + shot.dev + pdfsnap + snapmail + snapwatch under one Snap Suite umbrella." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -34,6 +34,12 @@
       --amber:       #FF7A1A;
       --amber-dim:   rgba(255, 122, 26, 0.10);
       --amber-glow:  rgba(255, 122, 26, 0.20);
+      --purple:      #A855F7;
+      --purple-dim:  rgba(168, 85, 247, 0.10);
+      --purple-glow: rgba(168, 85, 247, 0.20);
+      --orange:      #FF5F00;
+      --orange-dim:  rgba(255, 95, 0, 0.10);
+      --orange-glow: rgba(255, 95, 0, 0.20);
 
       --text-hi:     #F0F2FF;
       --text-lo:     #7A84AA;
@@ -121,7 +127,7 @@
       gap: 10px;
     }
 
-    /* Three-stripe prism mark */
+    /* Five-stripe prism mark */
     .prism-mark {
       display: flex;
       gap: 3px;
@@ -129,12 +135,14 @@
       align-items: stretch;
     }
     .prism-mark span {
-      width: 5px;
+      width: 4px;
       border-radius: 2px;
     }
     .prism-mark .s1 { background: var(--lime); }
     .prism-mark .s2 { background: var(--cyan); }
     .prism-mark .s3 { background: var(--amber); }
+    .prism-mark .s4 { background: var(--purple); }
+    .prism-mark .s5 { background: var(--orange); }
 
     .nav-wordmark {
       font-family: var(--font-display);
@@ -342,6 +350,20 @@
     }
     .pill-amber:hover { box-shadow: 0 4px 24px var(--amber-glow); }
 
+    .pill-purple {
+      background: var(--purple-dim);
+      border-color: rgba(168,85,247,0.3);
+      color: var(--purple);
+    }
+    .pill-purple:hover { box-shadow: 0 4px 24px var(--purple-glow); }
+
+    .pill-orange {
+      background: var(--orange-dim);
+      border-color: rgba(255,95,0,0.3);
+      color: var(--orange);
+    }
+    .pill-orange:hover { box-shadow: 0 4px 24px var(--orange-glow); }
+
     .pill-dot {
       width: 6px;
       height: 6px;
@@ -443,12 +465,24 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 20px;
+    }
+    /* First 3 cards: 2 of 6 cols each → full-width row of 3 */
+    .products-grid .product-card:nth-child(-n+3) {
+      grid-column: span 2;
+    }
+    /* Last 2 cards: 3 of 6 cols each → centered pair */
+    .products-grid .product-card:nth-child(n+4) {
+      grid-column: span 3;
     }
 
     @media (max-width: 800px) {
       .products-grid { grid-template-columns: 1fr; }
+      .products-grid .product-card:nth-child(-n+3),
+      .products-grid .product-card:nth-child(n+4) {
+        grid-column: span 1;
+      }
     }
 
     .product-card {
@@ -484,6 +518,12 @@
     .product-card-amber::before { background: linear-gradient(90deg, var(--amber), transparent); }
     .product-card-amber:hover { border-color: rgba(255,122,26,0.25); box-shadow: 0 8px 40px rgba(255,122,26,0.07); }
 
+    .product-card-purple::before { background: linear-gradient(90deg, var(--purple), transparent); }
+    .product-card-purple:hover { border-color: rgba(168,85,247,0.25); box-shadow: 0 8px 40px rgba(168,85,247,0.07); }
+
+    .product-card-orange::before { background: linear-gradient(90deg, var(--orange), transparent); }
+    .product-card-orange:hover { border-color: rgba(255,95,0,0.25); box-shadow: 0 8px 40px rgba(255,95,0,0.07); }
+
     /* Ambient corner glow on card hover */
     .product-card::after {
       content: '';
@@ -499,6 +539,8 @@
     .product-card-lime::after { background: var(--lime-glow); }
     .product-card-cyan::after { background: var(--cyan-glow); }
     .product-card-amber::after { background: var(--amber-glow); }
+    .product-card-purple::after { background: var(--purple-glow); }
+    .product-card-orange::after { background: var(--orange-glow); }
     .product-card:hover::after { opacity: 1; }
 
     .product-card-num {
@@ -531,6 +573,15 @@
       font-style: italic;
       color: var(--amber);
     }
+    .product-name-snapmail {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      color: var(--purple);
+    }
+    .product-name-snapwatch {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--orange);
+    }
 
     .product-card-tagline {
       font-size: 14px;
@@ -558,6 +609,8 @@
     .stat-value-lime { color: var(--lime); }
     .stat-value-cyan { color: var(--cyan); }
     .stat-value-amber { color: var(--amber); }
+    .stat-value-purple { color: var(--purple); }
+    .stat-value-orange { color: var(--orange); }
 
     .product-card-link {
       display: inline-flex;
@@ -572,6 +625,8 @@
     .product-card-link-lime { color: var(--lime); }
     .product-card-link-cyan { color: var(--cyan); }
     .product-card-link-amber { color: var(--amber); }
+    .product-card-link-purple { color: var(--purple); }
+    .product-card-link-orange { color: var(--orange); }
 
     /* ── Unified Key Section ───────────────────────────────── */
     .unified-section {
@@ -1023,6 +1078,8 @@
           <span class="s1"></span>
           <span class="s2"></span>
           <span class="s3"></span>
+          <span class="s4"></span>
+          <span class="s5"></span>
         </div>
         <span class="nav-wordmark">SNAP SUITE</span>
       </a>
@@ -1040,6 +1097,14 @@
           <span class="nav-link-dot" style="background:#FF7A1A"></span>
           pdfsnap
         </a>
+        <a href="https://snapmail.dev" target="_blank" class="nav-link">
+          <span class="nav-link-dot" style="background:#A855F7"></span>
+          snapmail
+        </a>
+        <a href="https://snapwatch.dev" target="_blank" class="nav-link">
+          <span class="nav-link-dot" style="background:#FF5F00"></span>
+          snapwatch
+        </a>
         <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#waitlist" class="nav-cta">Get Early Access →</a>
       </div>
@@ -1055,6 +1120,8 @@
           <span style="background:#C8FF00"></span>
           <span style="background:#00E5C8"></span>
           <span style="background:#FF7A1A"></span>
+          <span style="background:#A855F7"></span>
+          <span style="background:#FF5F00"></span>
         </div>
         Now in early access
       </div>
@@ -1065,8 +1132,9 @@
       </h1>
 
       <p class="hero-sub reveal reveal-delay-2">
-        Your product needs <em>OG images</em>, <em>screenshots</em>, and <em>PDFs</em>.
-        Stop juggling three vendors, three bills, and three API docs.
+        Your product needs <em>OG images</em>, <em>screenshots</em>, <em>PDFs</em>,
+        <em>email previews</em>, and <em>change alerts</em>.
+        Stop juggling five vendors, five bills, and five API docs.
       </p>
 
       <div class="hero-pills reveal reveal-delay-3">
@@ -1081,6 +1149,14 @@
         <a href="https://pdfsnap.dev" target="_blank" class="pill pill-amber">
           <span class="pill-dot"></span>
           pdfsnap · PDF Render
+        </a>
+        <a href="https://snapmail.dev" target="_blank" class="pill pill-purple">
+          <span class="pill-dot"></span>
+          snapmail · Email Preview
+        </a>
+        <a href="https://snapwatch.dev" target="_blank" class="pill pill-orange">
+          <span class="pill-dot"></span>
+          snapwatch · Change Monitor
         </a>
       </div>
 
@@ -1098,16 +1174,16 @@
     <div class="container">
       <div class="products-header">
         <p class="section-label reveal">The Suite</p>
-        <h2 class="section-title reveal reveal-delay-1">Three APIs.<br>One aesthetic.</h2>
+        <h2 class="section-title reveal reveal-delay-1">Five APIs.<br>One aesthetic.</h2>
         <p class="section-sub reveal reveal-delay-2">
-          Each product is fully independent — use one, two, or all three. Bundle them for a single key and save up to 67%.
+          Each product is fully independent — use one, two, or all five. Share one API key across the entire stack.
         </p>
       </div>
 
       <div class="products-grid">
         <!-- SnapOG -->
         <div class="product-card product-card-lime reveal reveal-delay-1">
-          <p class="product-card-num">01 / 03</p>
+          <p class="product-card-num">01 / 05</p>
           <h3 class="product-card-name">
             <span class="product-name-snapog">SnapOG</span>
           </h3>
@@ -1135,7 +1211,7 @@
 
         <!-- shot.dev -->
         <div class="product-card product-card-cyan reveal reveal-delay-2">
-          <p class="product-card-num">02 / 03</p>
+          <p class="product-card-num">02 / 05</p>
           <h3 class="product-card-name">
             <span class="product-name-shot">shot.dev</span>
           </h3>
@@ -1163,7 +1239,7 @@
 
         <!-- pdfsnap -->
         <div class="product-card product-card-amber reveal reveal-delay-3">
-          <p class="product-card-num">03 / 03</p>
+          <p class="product-card-num">03 / 05</p>
           <h3 class="product-card-name">
             <span class="product-name-pdfsnap">pdfsnap</span>
           </h3>
@@ -1188,6 +1264,62 @@
             pdfsnap.dev →
           </a>
         </div>
+
+        <!-- snapmail -->
+        <div class="product-card product-card-purple reveal reveal-delay-4">
+          <p class="product-card-num">04 / 05</p>
+          <h3 class="product-card-name">
+            <span class="product-name-snapmail">snapmail</span>
+          </h3>
+          <p class="product-card-tagline">
+            Render HTML email templates to pixel-perfect screenshots. Test across viewports before you send. No Outlook surprises.
+          </p>
+          <div class="product-card-stats">
+            <div class="stat-row">
+              <span class="stat-label">Free tier</span>
+              <span class="stat-value stat-value-purple">10 req/mo</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Pro</span>
+              <span class="stat-value stat-value-purple">$49 / mo</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Output</span>
+              <span class="stat-value stat-value-purple">PNG · Mobile · Desktop</span>
+            </div>
+          </div>
+          <a href="https://snapmail.dev" target="_blank" class="product-card-link product-card-link-purple">
+            snapmail.dev →
+          </a>
+        </div>
+
+        <!-- snapwatch -->
+        <div class="product-card product-card-orange reveal reveal-delay-5">
+          <p class="product-card-num">05 / 05</p>
+          <h3 class="product-card-name">
+            <span class="product-name-snapwatch">snapwatch</span>
+          </h3>
+          <p class="product-card-tagline">
+            Monitor URLs for changes and fire webhooks the moment content shifts. Screenshot diffs, CSS selectors, bot-detection built in.
+          </p>
+          <div class="product-card-stats">
+            <div class="stat-row">
+              <span class="stat-label">Starter</span>
+              <span class="stat-value stat-value-orange">$29 / mo</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Pro</span>
+              <span class="stat-value stat-value-orange">$79 / mo</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Checks</span>
+              <span class="stat-value stat-value-orange">every 15 min</span>
+            </div>
+          </div>
+          <a href="https://snapwatch.dev" target="_blank" class="product-card-link product-card-link-orange">
+            snapwatch.dev →
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1200,9 +1332,9 @@
       <div class="unified-inner">
         <div class="unified-left">
           <p class="section-label reveal">One Integration</p>
-          <h2 class="section-title reveal reveal-delay-1">One key.<br>Three APIs.</h2>
+          <h2 class="section-title reveal reveal-delay-1">One key.<br>Five APIs.</h2>
           <p class="section-sub reveal reveal-delay-2">
-            All three products share the same Bearer token authentication pattern. Copy one key, call three APIs.
+            All five products share the same Bearer token authentication pattern. Copy one key, call any API in the stack.
           </p>
 
           <div class="unified-features">
@@ -1242,7 +1374,7 @@
               <span></span>
             </div>
             <div class="code-body">
-<span class="code-comment">// One key — three superpowers</span>
+<span class="code-comment">// One key — five superpowers</span>
 <span class="code-var">const</span> key = <span class="code-string">"Bearer sk_suite_••••••••••••"</span>;
 
 <span class="code-comment">// ① OG image → SnapOG</span>
@@ -1264,6 +1396,20 @@
   method: <span class="code-string">"POST"</span>,
   headers: { Authorization: key },
   body: JSON.stringify({ html: template })
+});
+
+<span class="code-comment">// ④ Email preview → snapmail</span>
+<span class="code-var">const</span> preview = <span class="code-method">await</span> fetch(<span class="code-url-lime">"https://api.snapmail.dev/preview"</span>, {
+  method: <span class="code-string">"POST"</span>,
+  headers: { Authorization: key },
+  body: JSON.stringify({ html: emailTemplate, width: 600 })
+});
+
+<span class="code-comment">// ⑤ Watch for changes → snapwatch</span>
+<span class="code-var">const</span> watch = <span class="code-method">await</span> fetch(<span class="code-url-cyan">"https://api.snapwatch.dev/watches"</span>, {
+  method: <span class="code-string">"POST"</span>,
+  headers: { Authorization: key },
+  body: JSON.stringify({ url: target, webhook_url: endpoint })
 });
             </div>
           </div>
@@ -1419,6 +1565,8 @@
               <span class="s1"></span>
               <span class="s2"></span>
               <span class="s3"></span>
+              <span class="s4"></span>
+              <span class="s5"></span>
             </div>
             <span class="nav-wordmark">SNAP SUITE</span>
           </div>
@@ -1437,6 +1585,14 @@
           <a href="https://pdfsnap.dev" target="_blank" class="footer-link">
             <span class="footer-dot" style="background:#FF7A1A"></span>
             pdfsnap
+          </a>
+          <a href="https://snapmail.dev" target="_blank" class="footer-link">
+            <span class="footer-dot" style="background:#A855F7"></span>
+            snapmail
+          </a>
+          <a href="https://snapwatch.dev" target="_blank" class="footer-link">
+            <span class="footer-dot" style="background:#FF5F00"></span>
+            snapwatch
           </a>
           <a href="https://snapog.dev/api" target="_blank" class="footer-link" style="color:var(--text-xlo)">
             API Docs
